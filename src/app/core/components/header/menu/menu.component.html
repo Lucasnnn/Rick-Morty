@@ -1,0 +1,26 @@
+<mat-button-toggle-group id="menu_header">
+    <mat-button-toggle 
+    [routerLink]="'home'"
+    routerLinkActive="mat-button-toggle-checked"
+    >
+        <mat-icon>home</mat-icon>
+
+       <span>
+          Inicio
+       </span> 
+    </mat-button-toggle>
+
+
+    <mat-button-toggle 
+    [routerLink]="'favorites'"
+    routerLinkActive="mat-button-toggle-checked"
+    >
+        <mat-icon>favorite</mat-icon>
+
+     <span>
+        Favoritos
+     </span>    
+    </mat-button-toggle>
+</mat-button-toggle-group>
+
+<!-- <app-count-favorites></app-count-favorites> -->

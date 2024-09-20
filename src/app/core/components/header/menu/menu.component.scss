@@ -1,0 +1,13 @@
+#menu_header{
+    border-radius: 12px;
+    border: 0.3vh solid #3D3D3D;
+
+    .mat-button-toggle {
+        background-color: transparent;
+    }
+
+    .mat-button-toggle-checked  {
+        background-color: white;
+        color: black;
+    }
+}

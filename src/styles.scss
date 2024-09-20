@@ -1,3 +1,12 @@
+@import '~@angular/material/prebuilt-themes/purple-green.css';
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html,
 body {
     margin: 0 !important;

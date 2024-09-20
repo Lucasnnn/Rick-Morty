@@ -3,17 +3,23 @@ import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './components/layout/layout.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
-
-
+import { MenuComponent } from './components/header/menu/menu.component';
+import { SharedComponentsModule } from '../shared/components/shared-components.module';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     LayoutComponent,
-    HeaderComponent
+    HeaderComponent,
+    MenuComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SharedComponentsModule,
+    MatButtonToggleModule,
+    MatIconModule
   ]
 })
 export class CoreModule {
