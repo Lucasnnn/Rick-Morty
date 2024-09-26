@@ -1,0 +1,16 @@
+.creep-section{
+    $green: #b2df28;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .title {
+        color: #00b5cc;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 4rem !important;
+        font-family: Creepster, system-ui;
+        text-shadow: -2px -2px 0 $green, 2px -2px 0 $green, -2px 2px 0 $green, 2px 2px 0 $green;
+    }
+}
