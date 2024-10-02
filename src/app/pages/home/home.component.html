@@ -1,10 +1,11 @@
 <app-title title="Início">
-    
-    <mat-form-field id="search-persons" appearance="outline">
-        <mat-label>Pesquisar</mat-label>
+  <mat-form-field id="search-persons" appearance="outline">
+    <mat-label>Pesquisar</mat-label>
 
-        <input matInput >
+    <input matInput />
 
-        <mat-hint>test</mat-hint>
-    </mat-form-field>
+    <mat-hint>test</mat-hint>
+  </mat-form-field>
 </app-title>
+
+<app-list-characters [characters]="characters"></app-list-characters>

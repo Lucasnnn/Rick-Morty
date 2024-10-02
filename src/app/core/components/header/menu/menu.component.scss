@@ -1,13 +1,18 @@
-#menu_header{
-    border-radius: 12px;
-    border: 0.3vh solid #3D3D3D;
+#menu_header {
+  border-radius: 12px;
+  border: 0.3vh solid #3d3d3d;
 
-    .mat-button-toggle {
-        background-color: transparent;
-    }
+  .mat-button-toggle {
+    background-color: transparent;
+  }
 
-    .mat-button-toggle-checked  {
-        background-color: white;
-        color: black;
-    }
+  .mat-button-toggle-checked {
+    background-color: white;
+    color: black;
+  }
+
+  #favorite_circle {
+    position: relative;
+    background-color: red;
+  }
 }

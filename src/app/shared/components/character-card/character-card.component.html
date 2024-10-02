@@ -1,0 +1,9 @@
+<div
+  class="card"
+  [ngClass]="{
+    'dead-background': character.status === 'Dead',
+    'alive-background': character.status === 'Alive'
+  }"
+>
+  <img [src]="character.image" />
+</div>
