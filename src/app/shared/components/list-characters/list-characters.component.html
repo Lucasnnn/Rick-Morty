@@ -1,15 +1,5 @@
 <section class="list-characters">
-  <ng-container *ngIf="characters?.length; else empty">
-    <div *ngFor="let character of characters">
-      <app-character-card [character]="character"> </app-character-card>
-    </div>
-  </ng-container>
-</section>
-
-<ng-template #empty>
-  <div>
-    <span>
-      <p>vazio</p>
-    </span>
+  <div *ngFor="let character of characters">
+    <app-character-card [character]="character"> </app-character-card>
   </div>
-</ng-template>
+</section>

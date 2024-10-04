@@ -1,4 +1,12 @@
-#container{
-    padding-top: 4vh;
-    padding-inline: 2vw;
+#base-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  padding-top: 4vh;
+  padding-inline: 2vw;
+
+  .container {
+    max-width: 1000px;
+  }
 }

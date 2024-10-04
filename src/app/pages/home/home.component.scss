@@ -2,7 +2,8 @@
   $grey: #3d3d3d;
   $radius: 1rem;
 
-  min-width: 40vw;
+  width: 40vw;
+  max-width: 520px !important;
 
   ::ng-deep .mat-mdc-form-field-subscript-wrapper {
     display: none !important;

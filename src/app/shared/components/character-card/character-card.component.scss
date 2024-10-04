@@ -1,17 +1,66 @@
-p {
-  color: greenyellow;
-}
+$borderRadius: 1.2rem;
 
 .card {
-  margin: 5%;
-  padding: 10%;
-  background-color: red;
+  width: auto;
+  overflow: hidden;
+  position: relative;
+  margin-inline: 0.5rem;
+  border-radius: $borderRadius;
+  border: rgba(78, 78, 78, 0.63) solid 1px;
 }
 
-.dead-background {
-  background-color: aquamarine !important;
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.alive-background {
-  background-color: rgb(112, 255, 3) !important;
+.card-body {
+  padding: 20px;
+  font-size: 16px;
+  text-align: center;
+  background-color: black;
+
+  h5 {
+    color: white;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: left;
+    line-height: 24px;
+    font-family: Creepster;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: left;
+    margin-top: 0.5rem;
+    line-height: 22.4px;
+    font-family: Poppins;
+    color: var(--color-core-content-low, rgba(164, 164, 164, 1));
+  }
+}
+
+.circleBackGround {
+  display: flex;
+  padding-top: 0.2rem;
+  justify-content: center;
+
+  right: 0;
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  border-left: none;
+  position: absolute;
+  border-radius: 100%;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: $borderRadius;
+  background-color: rgba(0, 0, 0, 0.295);
+}
+
+.fav-select {
+  background-color: rgba(255, 255, 255, 1);
 }

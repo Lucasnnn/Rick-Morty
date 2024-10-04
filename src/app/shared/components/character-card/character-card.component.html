@@ -1,9 +1,16 @@
-<div
-  class="card"
-  [ngClass]="{
-    'dead-background': character.status === 'Dead',
-    'alive-background': character.status === 'Alive'
-  }"
->
-  <img [src]="character.image" />
+<div class="card">
+  <section class="circleBackGround" [ngClass]="{ 'fav-select': favorite }">
+    <app-favorite-button
+      [iddd]="character.id"
+      (isFavorite)="setFavorite($event)"
+    ></app-favorite-button>
+  </section>
+
+  <img [src]="character.image" alt="Imagem do Card" />
+
+  <div class="card-body">
+    <h5>{{ character.name }}</h5>
+
+    <p>{{ character.species }}</p>
+  </div>
 </div>

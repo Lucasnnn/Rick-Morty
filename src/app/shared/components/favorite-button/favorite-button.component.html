@@ -1,0 +1,7 @@
+<button (click)="toggle()" class="favorite-button" mat-icon-button>
+  <mat-icon class="bg-black" *ngIf="favorite; else not"> favorite </mat-icon>
+
+  <ng-template #not>
+    <mat-icon>favorite_border</mat-icon>
+  </ng-template>
+</button>

@@ -8,4 +8,10 @@ import { Character } from '../../models/character.class';
 })
 export class CharacterCardComponent {
   @Input() character: Character;
+
+  favorite: boolean = false;
+
+  setFavorite(favorited: boolean) {
+    this.favorite = favorited;
+  }
 }
