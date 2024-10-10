@@ -9,10 +9,24 @@
   .mat-button-toggle-checked {
     background-color: white;
     color: black;
+
+    #favorite_circle {
+      color: white;
+      background-color: black;
+    }
   }
 
   #favorite_circle {
-    position: relative;
-    background-color: red;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+    border-radius: 50%;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    background-color: white;
   }
 }
