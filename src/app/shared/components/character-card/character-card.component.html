@@ -1,7 +1,7 @@
 <div class="card">
   <section class="circleBackGround" [ngClass]="{ 'fav-select': favorite }">
     <app-favorite-button
-      [iddd]="character.id"
+      [id]="character.id"
       (isFavorite)="setFavorite($event)"
     ></app-favorite-button>
   </section>

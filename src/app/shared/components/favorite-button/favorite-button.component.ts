@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FavoritesService } from '../../services/favorites.service';
 
 @Component({
   selector: 'app-favorite-button',
@@ -6,13 +7,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./favorite-button.component.scss'],
 })
 export class FavoriteButtonComponent implements OnInit {
-  @Input() iddd: number;
+  @Input() id: number;
 
   @Output() isFavorite = new EventEmitter<boolean>(false);
 
   favorite = false;
 
-  private ids = [2, 4, 5];
+  constructor(private _favorites: FavoritesService) {}
 
   ngOnInit(): void {
     this.checkFavorited();
@@ -21,11 +22,17 @@ export class FavoriteButtonComponent implements OnInit {
   toggle() {
     this.favorite = !this.favorite;
 
+    if (this.favorite) {
+      this._favorites.add(this.id);
+    } else {
+      this._favorites.remove(this.id);
+    }
+
     this.emit();
   }
 
   checkFavorited() {
-    this.favorite = this.ids?.includes(this.iddd);
+    this.favorite = this._favorites.isFavorite(this.id);
 
     setTimeout(() => {
       this.emit();
