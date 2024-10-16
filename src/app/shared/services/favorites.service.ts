@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { CharactersRestService } from './characters-rest.service';
+import { Character } from '../models/character.class';
 
 @Injectable({
   providedIn: 'root',
@@ -11,13 +12,15 @@ export class FavoritesService {
   private SPLITER = ';';
   private ENUM_STORAGE = 'characters-ids';
   private _ids: BehaviorSubject<Number[]> = new BehaviorSubject<Number[]>([]);
-  private _items: BehaviorSubject<Number[]> = new BehaviorSubject<Number[]>([]);
+  private _items: BehaviorSubject<Character[]> = new BehaviorSubject<
+    Character[]
+  >([]);
 
   get ids$(): Observable<Number[]> {
     return this._ids.asObservable();
   }
 
-  get items$(): Observable<Number[]> {
+  get items$(): Observable<Character[]> {
     return this._items.asObservable();
   }
 
@@ -33,12 +36,18 @@ export class FavoritesService {
 
   remove(id: Number) {
     let currentIds: Number[] = this._ids.getValue();
+    let currentItems: Character[] = this._items.getValue();
 
     const ids: Number[] = currentIds.filter(
       (currentId: Number) => currentId !== id
     );
 
+    const items: Character[] = currentItems.filter((character: Character) =>
+      ids.includes(character?.id)
+    );
+
     this.setIds(ids);
+    this._items.next(items);
   }
 
   isFavorite(id: Number) {
@@ -47,10 +56,21 @@ export class FavoritesService {
     return currentIds.includes(id);
   }
 
-  getCharacters() {
+  getCharacters(): void {
     const ids = this._ids.getValue();
 
-    return this._characterRest.getMultiples(ids);
+    this._characterRest
+      .getByIds(ids)
+      .pipe(
+        tap((characters) => {
+          if (Array.isArray(characters)) {
+            this._items.next(characters);
+          } else {
+            this._items.next([characters]);
+          }
+        })
+      )
+      .subscribe();
   }
 
   preLoad(): Promise<void> {
@@ -73,6 +93,10 @@ export class FavoritesService {
         reject(error);
       }
     });
+  }
+
+  clearItems() {
+    this._items.next([]);
   }
 
   private setIds(ids: Number[], load?: Boolean) {

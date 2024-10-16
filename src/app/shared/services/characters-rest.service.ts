@@ -19,7 +19,9 @@ export class CharactersRestService {
     return this._http.get<CharactersResponse>(this.baseUrl + '?name=' + name);
   }
 
-  getMultiples(ids: Number[]) {
-    return this._http.get<Character[]>(this.baseUrl + ids.join(','));
+  getByIds(ids: Number[]) {
+    return this._http.get<Character | Character[]>(
+      this.baseUrl + ids.join(',')
+    );
   }
 }

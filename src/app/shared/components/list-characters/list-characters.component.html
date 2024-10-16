@@ -1,9 +1,9 @@
 <section
   infiniteScroll
+  class="list-characters"
   (scrolled)="onScroll()"
   [infiniteScrollDistance]="2"
   [infiniteScrollThrottle]="500"
-  class="list-characters"
 >
   <div *ngFor="let character of characters">
     <app-character-card [character]="character"> </app-character-card>
