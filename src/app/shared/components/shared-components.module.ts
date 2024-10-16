@@ -6,6 +6,7 @@ import { CharacterCardComponent } from './character-card/character-card.componen
 import { FavoriteButtonComponent } from './favorite-button/favorite-button.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
     CharacterCardComponent,
     FavoriteButtonComponent,
   ],
-  imports: [CommonModule, MatIconModule, MatButtonModule],
+  imports: [CommonModule, MatIconModule, MatButtonModule, InfiniteScrollModule],
   exports: [TitleComponent, ListCharactersComponent],
 })
 export class SharedComponentsModule {}

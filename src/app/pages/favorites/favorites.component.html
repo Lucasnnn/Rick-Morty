@@ -1,3 +1,11 @@
 <app-title title="Favoritos"> </app-title>
 
-<app-list-characters></app-list-characters>
+<ng-container *ngIf="characters == null; else list">
+  <section id="spinner_favorite">
+    <mat-spinner color="accent" [diameter]="200"></mat-spinner>
+  </section>
+</ng-container>
+
+<ng-container #list>
+  <app-list-characters [characters]="characters"></app-list-characters>
+</ng-container>

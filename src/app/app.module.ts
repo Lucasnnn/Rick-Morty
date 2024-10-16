@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FavoritesService } from './shared/services/favorites.service';
+import { HttpClientModule } from '@angular/common/http';
 
 export function initializeApp(favoritesService: FavoritesService) {
   return (): Promise<void> => {
@@ -19,13 +20,14 @@ export function initializeApp(favoritesService: FavoritesService) {
     AppRoutingModule,
     CoreModule,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [
     {
+      multi: true,
+      deps: [FavoritesService],
       provide: APP_INITIALIZER,
       useFactory: initializeApp,
-      deps: [FavoritesService],
-      multi: true,
     },
   ],
   bootstrap: [AppComponent],

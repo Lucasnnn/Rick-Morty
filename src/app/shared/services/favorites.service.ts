@@ -1,16 +1,24 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { CharactersRestService } from './characters-rest.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FavoritesService {
+  constructor(private _characterRest: CharactersRestService) {}
+
   private SPLITER = ';';
   private ENUM_STORAGE = 'characters-ids';
   private _ids: BehaviorSubject<Number[]> = new BehaviorSubject<Number[]>([]);
+  private _items: BehaviorSubject<Number[]> = new BehaviorSubject<Number[]>([]);
 
   get ids$(): Observable<Number[]> {
     return this._ids.asObservable();
+  }
+
+  get items$(): Observable<Number[]> {
+    return this._items.asObservable();
   }
 
   add(id: Number) {
@@ -39,6 +47,12 @@ export class FavoritesService {
     return currentIds.includes(id);
   }
 
+  getCharacters() {
+    const ids = this._ids.getValue();
+
+    return this._characterRest.getMultiples(ids);
+  }
+
   preLoad(): Promise<void> {
     return new Promise((resolve, reject) => {
       try {
@@ -61,7 +75,7 @@ export class FavoritesService {
     });
   }
 
-  setIds(ids: Number[], load?: Boolean) {
+  private setIds(ids: Number[], load?: Boolean) {
     this._ids.next(ids);
 
     if (!load) {

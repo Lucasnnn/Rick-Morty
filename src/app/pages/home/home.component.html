@@ -2,10 +2,11 @@
   <mat-form-field id="search-persons" appearance="outline">
     <mat-label>Pesquisar</mat-label>
 
-    <input matInput />
-
-    <mat-hint>test</mat-hint>
+    <input matInput [formControl]="inputSearch" />
   </mat-form-field>
 </app-title>
 
-<app-list-characters [characters]="characters"></app-list-characters>
+<app-list-characters
+  [characters]="characters"
+  (nextPage)="nextPage($event)"
+></app-list-characters>

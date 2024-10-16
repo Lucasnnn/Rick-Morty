@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 import { SharedComponentsModule } from 'src/app/shared/components/shared-components.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -15,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
     SharedComponentsModule,
     MatFormFieldModule,
     MatInputModule,
+    ReactiveFormsModule,
   ],
 })
 export class HomeModule {}
